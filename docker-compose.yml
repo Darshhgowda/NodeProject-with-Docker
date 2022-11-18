@@ -1,0 +1,21 @@
+version: '3'
+services:
+    mongo:
+        image: darshgowda/mongo_new
+        ports:
+            - 27017:27017
+    redis:
+        image: redis:alpine
+        ports:
+            - 6379:6379
+    sampleapp:
+      image: darshgowda/samplenode
+        volumes:
+            - ./:/usr/src/app
+            - /usr/src/app/node_modules
+        ports:
+            - 8090:3000
+        links:
+            - mongo
+        depends_on:
+            - redis
