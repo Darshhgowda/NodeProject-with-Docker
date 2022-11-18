@@ -9,7 +9,7 @@ services:
         ports:
             - 6379:6379
     sampleapp:
-      image: darshgowda/samplenode
+        image: darshgowda/samplenode
         volumes:
             - ./:/usr/src/app
             - /usr/src/app/node_modules
